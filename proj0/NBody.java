@@ -55,7 +55,7 @@ public class NBody{
 
         double time = 0;
         int lengthOfPlanets = planets.length;
-        while(time < T) {
+        while(time <= T) {
             double[] xForces = new double[lengthOfPlanets];
             double[] yForces = new double[lengthOfPlanets];
             for(int j=0; j<lengthOfPlanets; j++) {
@@ -65,6 +65,8 @@ public class NBody{
             for(int i=0; i<lengthOfPlanets; i++) {
                 planets[i].update(dt, xForces[i], yForces[i]);
             }
+
+            StdDraw.picture(0, 0, "images/starfield.jpg"); // every loop, re-depict.
             for(Planet p:planets) {
                 p.draw();
             }

@@ -40,13 +40,13 @@ public class Planet {
     }
 
     public double calcForceExertedByX(Planet p) {
-        double cos_value = (this.xxPos - p.xxPos) / calDistance(p);
+        double cos_value = (p.xxPos -this.xxPos) / calDistance(p);
         double total_force = calcForceExertedBy(p);
         return cos_value * total_force;
     }
 
     public double calcForceExertedByY(Planet p) {
-        double sin_value = (this.yyPos - p.yyPos) / calDistance(p);
+        double sin_value = (p.yyPos - this.yyPos) / calDistance(p);
         double total_force = calcForceExertedBy(p);
         return sin_value * total_force;
     }
