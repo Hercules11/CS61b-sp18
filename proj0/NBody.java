@@ -16,7 +16,7 @@ public class NBody{
         in.readDouble();
         Planet[] planets = new Planet[first_int]; // built_in data types is the same as users defined.
         int num = 0;
-        while(num < 5) {
+        while(num < first_int) {
             double xp = in.readDouble();
             double yp = in.readDouble();
             double xv = in.readDouble();
