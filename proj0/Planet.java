@@ -26,7 +26,7 @@ public class Planet {
         this.imgFileName = p.imgFileName;
     }
 
-    public double calDistance(Planet p) {
+    public double calcDistance(Planet p) {
         double delta_x = this.xxPos - p.xxPos;
         double delta_y = this.yyPos - p.yyPos;
         return Math.sqrt(delta_x*delta_x + delta_y*delta_y);
@@ -40,13 +40,13 @@ public class Planet {
     }
 
     public double calcForceExertedByX(Planet p) {
-        double cos_value = (p.xxPos -this.xxPos) / calDistance(p);
+        double cos_value = (p.xxPos -this.xxPos) / calcDistance(p); // pay attention to direction of force.
         double total_force = calcForceExertedBy(p);
         return cos_value * total_force;
     }
 
     public double calcForceExertedByY(Planet p) {
-        double sin_value = (p.yyPos - this.yyPos) / calDistance(p);
+        double sin_value = (p.yyPos - this.yyPos) / calcDistance(p);
         double total_force = calcForceExertedBy(p);
         return sin_value * total_force;
     }
