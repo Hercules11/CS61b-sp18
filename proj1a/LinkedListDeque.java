@@ -19,12 +19,12 @@ public class LinkedListDeque<T> {
         sentinel.next = sentinel;
     }
 
-//    public LinkedListDeque(T item) {
-//        sentinel = new DequeNode((T) null, null, null);
-//        sentinel.prev = new DequeNode(item, sentinel, sentinel);
-//        sentinel.next = sentinel.prev;
-//        size = 1;
-//    }
+    public LinkedListDeque(T item) {
+        sentinel = new DequeNode((T) null, null, null);
+        sentinel.prev = new DequeNode(item, sentinel, sentinel);
+        sentinel.next = sentinel.prev;
+        size = 1;
+    }
 
     public void addFirst(T item) {
         DequeNode first = new DequeNode(item, sentinel, sentinel.next);
@@ -81,7 +81,7 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if (index + 1 <= size) {
+        if (0 <= index && index + 1 <= size) {
             DequeNode ptr = sentinel.next;
             while (index > 0) {
                 ptr = ptr.next;
@@ -93,7 +93,7 @@ public class LinkedListDeque<T> {
     }
 
     public T getRecursive(int index) {
-        if (index + 1 <= size) {
+        if (0 <= index && index + 1 <= size) {
             DequeNode ptr = sentinel.next;
             if (index == 0) {
                 return ptr.item;
@@ -104,17 +104,17 @@ public class LinkedListDeque<T> {
         return null;
     }
 
-//    public static void main(String[] args) {
-//        LinkedListDeque<String> L1 = new LinkedListDeque<>("center");
-//        L1.addFirst("first");
-//        L1.addLast("last");
-//        L1.get(1);
-//        L1.getRecursive(0);
-//        L1.printDeque();
-//        L1.size();
-//        L1.isEmpty();
-//        L1.removeFirst();
-//        L1.printDeque();
-//        L1.removeLast();
-//    }
+    public static void main(String[] args) {
+        LinkedListDeque<String> L1 = new LinkedListDeque<>("center");
+        L1.addFirst("first");
+        L1.addLast("last");
+        L1.get(1);
+        L1.getRecursive(0);
+        L1.printDeque();
+        L1.size();
+        L1.isEmpty();
+        L1.removeFirst();
+        L1.printDeque();
+        L1.removeLast();
+    }
 }

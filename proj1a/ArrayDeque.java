@@ -111,7 +111,7 @@ public class ArrayDeque<T> {
         if (nextFirst == -1) {
             nextFirst = items.length - 1;
         }
-        Item x = items[nextFirst];
+        T x = items[nextFirst];
         items[nextFirst] = null;
         size -= 1;
         if (items.length >= 16 && (float) size / items.length < 0.25) {
@@ -146,17 +146,17 @@ public class ArrayDeque<T> {
         }
     }
 
-//    public static void main(String[] args) {
-//        ArrayDeque<String> L1 = new ArrayDeque<>("center");
-//        L1.addFirst("first");
-//        L1.addLast("last");
-//        System.out.println(L1.get(1));
-//        System.out.println(L1.get(0));
-//        L1.printDeque();
-//        System.out.println(L1.size());
-//        System.out.println(L1.isEmpty());
-//        L1.removeFirst();
-//        L1.printDeque();
-//        L1.removeLast();
-//    }
+    public static void main(String[] args) {
+        ArrayDeque<String> L1 = new ArrayDeque<>("center");
+        L1.addFirst("first");
+        L1.addLast("last");
+        System.out.println(L1.get(1));
+        System.out.println(L1.get(0));
+        L1.printDeque();
+        System.out.println(L1.size());
+        System.out.println(L1.isEmpty());
+        L1.removeFirst();
+        L1.printDeque();
+        L1.removeLast();
+    }
 }
