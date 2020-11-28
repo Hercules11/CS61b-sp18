@@ -19,12 +19,12 @@ public class LinkedListDeque<T> {
         sentinel.next = sentinel;
     }
 
-    public LinkedListDeque(T item) {
-        sentinel = new DequeNode((T) null, null, null);
-        sentinel.prev = new DequeNode(item, sentinel, sentinel);
-        sentinel.next = sentinel.prev;
-        size = 1;
-    }
+//    public LinkedListDeque(T item) {
+//        sentinel = new DequeNode((T) null, null, null);
+//        sentinel.prev = new DequeNode(item, sentinel, sentinel);
+//        sentinel.next = sentinel.prev;
+//        size = 1;
+//    }
 
     public void addFirst(T item) {
         DequeNode first = new DequeNode(item, sentinel, sentinel.next);
@@ -34,7 +34,7 @@ public class LinkedListDeque<T> {
     }
 
     public void addLast(T item) {
-        DequeNode last = new DequeNode(item, sentinel, sentinel.prev);
+        DequeNode last = new DequeNode(item, sentinel.prev, sentinel);
         sentinel.prev.next = last;
         sentinel.prev = last;
         size += 1;
@@ -61,7 +61,7 @@ public class LinkedListDeque<T> {
     public T removeFirst() {
         if (size > 0) {
             DequeNode ptr = sentinel.next;
-            sentinel.next.next.prev = sentinel;
+            ptr.next.prev = sentinel;
             sentinel.next = ptr.next;
             size -= 1;
             return ptr.item;
@@ -72,7 +72,7 @@ public class LinkedListDeque<T> {
     public T removeLast() {
         if (size > 0) {
             DequeNode ptr = sentinel.prev;
-            sentinel.prev.prev.next = sentinel;
+            ptr.prev.next = sentinel;
             sentinel.prev = ptr.prev;
             size -= 1;
             return ptr.item;
@@ -104,17 +104,17 @@ public class LinkedListDeque<T> {
         return null;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque<String> L1 = new LinkedListDeque<>("center");
-        L1.addFirst("first");
-        L1.addLast("last");
-        L1.get(1);
-        L1.getRecursive(0);
-        L1.printDeque();
-        L1.size();
-        L1.isEmpty();
-        L1.removeFirst();
-        L1.printDeque();
-        L1.removeLast();
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<String> L1 = new LinkedListDeque<>("center");
+//        L1.addFirst("first");
+//        L1.addLast("last");
+//        L1.get(1);
+//        L1.getRecursive(0);
+//        L1.printDeque();
+//        L1.size();
+//        L1.isEmpty();
+//        L1.removeFirst();
+//        L1.printDeque();
+//        L1.removeLast();
+//    }
 }

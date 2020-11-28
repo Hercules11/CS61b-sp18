@@ -12,14 +12,14 @@ public class ArrayDeque<T> {
         size = 0;
     }
 
-    /** Initialize a ArrrayDeque. */
-    public ArrayDeque(T el) {
-        items = (T[]) new Object[8];
-        items[0] = el;
-        nextFirst = 1;
-        nextLast = 7;
-        size = 1;
-    }
+//    /** Initialize a ArrrayDeque. */
+//    public ArrayDeque(T el) {
+//        items = (T[]) new Object[8];
+//        items[0] = el;
+//        nextFirst = 1;
+//        nextLast = 7;
+//        size = 1;
+//    }
 
     /** Resizes the underlying array to the target capacity.
      *  根据变大变小，前后索引的位置，确定变换方式
@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         T[] a = (T[]) new Object[capacity];
         if (capacity > items.length) {
-            if (nextFirst < nextLast) {
+            if (nextFirst <= nextLast) {
                 if (nextFirst != 0) {
                     System.arraycopy(items, 0, a, 0, nextFirst);
                 }
@@ -40,7 +40,7 @@ public class ArrayDeque<T> {
                 System.arraycopy(items, nextLast + 1, a, nextLast + 1, size);
             }
         } else {
-            if (nextFirst < nextLast) {
+            if (nextFirst <= nextLast) {
                 if (nextFirst != 0) {
                     System.arraycopy(items, 0, a, 0, nextFirst);
                 }
@@ -147,9 +147,25 @@ public class ArrayDeque<T> {
     }
 
     public static void main(String[] args) {
-        ArrayDeque<String> L1 = new ArrayDeque<>("center");
+        ArrayDeque<String> L1 = new ArrayDeque<>();
         L1.addFirst("first");
-        L1.addLast("last");
+        L1.addFirst("first1");
+        L1.addFirst("first2");
+        L1.addFirst("first3");
+        L1.addFirst("first4");
+        L1.addFirst("first5");
+        L1.addFirst("first6");
+        L1.addFirst("first7");
+        L1.addFirst("first8");
+        L1.addLast("last1");
+        L1.addLast("last2");
+        L1.addLast("last3");
+        L1.addLast("last4");
+        L1.addLast("last5");
+        L1.addLast("last6");
+        L1.addLast("last7");
+        L1.addLast("last8");
+        L1.addLast("last9");
         System.out.println(L1.get(1));
         System.out.println(L1.get(0));
         L1.printDeque();
