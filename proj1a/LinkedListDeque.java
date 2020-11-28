@@ -92,7 +92,7 @@ public class LinkedListDeque<T> {
         return null;
     }
 
-    public T getHelper(int index, DequeNode ptr) {
+    private T getHelper(int index, DequeNode ptr) {
         ptr = ptr.next;
         if (index == 0) {
             return ptr.item;
