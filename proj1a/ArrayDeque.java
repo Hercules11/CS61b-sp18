@@ -122,7 +122,7 @@ public class ArrayDeque<T> {
 
     /** Gets the ith item in the list (0 is the front). */
     public T get(int i) {
-        if (size == 0 || i >= size ) {
+        if (size == 0 || i >= size) {
             return null;
         }
         int location = nextFirst - 1 - i;
