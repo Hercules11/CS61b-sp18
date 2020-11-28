@@ -113,15 +113,15 @@ public class LinkedListDeque<T> {
         return null;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L1 = new LinkedListDeque<>();
-        L1.addFirst(0);
-        L1.addFirst(1);
-        L1.removeLast();
-        L1.addLast(3);
-        System.out.println(L1.removeLast());
-        System.out.println(L1.getRecursive(0));
-        L1.addFirst(6);
-        System.out.println(L1.getRecursive(1));
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<Integer> L1 = new LinkedListDeque<>();
+//        L1.addFirst(0);
+//        L1.addFirst(1);
+//        L1.removeLast();
+//        L1.addLast(3);
+//        System.out.println(L1.removeLast());
+//        System.out.println(L1.getRecursive(0));
+//        L1.addFirst(6);
+//        System.out.println(L1.getRecursive(1));
+//    }
 }
