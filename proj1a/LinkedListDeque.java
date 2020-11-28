@@ -98,18 +98,17 @@ public class LinkedListDeque<T> {
             if (index == 0) {
                 return ptr.item;
             } else {
-                getRecursive(index - 1);
+                return getRecursive(index - 1);
             }
         }
         return null;
     }
 
 //    public static void main(String[] args) {
-//        LinkedListDeque<String> L1 = new LinkedListDeque<>("center");
+//        LinkedListDeque<String> L1 = new LinkedListDeque<>();
 //        L1.addFirst("first");
 //        L1.addLast("last");
-//        L1.get(1);
-//        L1.getRecursive(0);
+//        System.out.println(L1.getRecursive(1));
 //        L1.printDeque();
 //        L1.size();
 //        L1.isEmpty();

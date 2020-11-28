@@ -122,7 +122,14 @@ public class ArrayDeque<T> {
 
     /** Gets the ith item in the list (0 is the front). */
     public T get(int i) {
-        return items[nextFirst - 1 - i];
+        if (size == 0 || i >= size ) {
+            return null;
+        }
+        int location = nextFirst - 1 - i;
+        if (location < 0) {
+            location = items.length + location;
+        }
+        return items[location];
     }
 
     /** Returns the number of items in the list. */
@@ -146,33 +153,33 @@ public class ArrayDeque<T> {
         }
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<String> L1 = new ArrayDeque<>();
-        L1.addFirst("first");
-        L1.addFirst("first1");
-        L1.addFirst("first2");
-        L1.addFirst("first3");
-        L1.addFirst("first4");
-        L1.addFirst("first5");
-        L1.addFirst("first6");
-        L1.addFirst("first7");
-        L1.addFirst("first8");
-        L1.addLast("last1");
-        L1.addLast("last2");
-        L1.addLast("last3");
-        L1.addLast("last4");
-        L1.addLast("last5");
-        L1.addLast("last6");
-        L1.addLast("last7");
-        L1.addLast("last8");
-        L1.addLast("last9");
-        System.out.println(L1.get(1));
-        System.out.println(L1.get(0));
-        L1.printDeque();
-        System.out.println(L1.size());
-        System.out.println(L1.isEmpty());
-        L1.removeFirst();
-        L1.printDeque();
-        L1.removeLast();
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<String> L1 = new ArrayDeque<>();
+//        L1.addFirst("first");
+//        L1.addFirst("first1");
+//        L1.addFirst("first2");
+//        L1.addFirst("first3");
+//        L1.addFirst("first4");
+//        L1.addFirst("first5");
+//        L1.addFirst("first6");
+//        L1.addFirst("first7");
+//        L1.addFirst("first8");
+//        L1.addLast("last1");
+//        L1.addLast("last2");
+//        L1.addLast("last3");
+//        L1.addLast("last4");
+//        L1.addLast("last5");
+//        L1.addLast("last6");
+//        L1.addLast("last7");
+//        L1.addLast("last8");
+//        L1.addLast("last9");
+//        System.out.println(L1.get(1));
+//        System.out.println(L1.get(0));
+//        L1.printDeque();
+//        System.out.println(L1.size());
+//        System.out.println(L1.isEmpty());
+//        L1.removeFirst();
+//        L1.printDeque();
+//        L1.removeLast();
+//    }
 }
