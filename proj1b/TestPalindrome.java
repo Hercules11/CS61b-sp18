@@ -37,7 +37,7 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("acdb", offByOne));
     }
 
-    OffByN cc = new OffByN(3);
+    CharacterComparator cc = new OffByN(3);
     @Test
     public void testIsPalindromeOfByN() {
         assertTrue(palindrome.isPalindrome("ad", cc));

@@ -7,34 +7,58 @@ public class Palindrome {
         return stringDeque;
     }
 
-    boolean isPalindrome(String word) {
-        if (word.length() == 0 || word.length() == 1) {
+    public boolean isPalindrome(String word) {
+//        if (word.length() == 0 || word.length() == 1) {
+//            return true;
+//        } else if (word.charAt(0) != word.charAt(word.length() - 1)) {
+//            return false;
+//        } else {
+//            return isPalindrome(word.substring(1, word.length() - 1));
+//        }
+        Deque dq = wordToDeque(word);
+        return getIsPalindrome(dq);
+    }
+
+    private boolean getIsPalindrome(Deque dq) {
+        if (dq.size() == 0 || dq.size() == 1) {
             return true;
-        } else if (word.charAt(0) != word.charAt(word.length() - 1)) {
+        } else if (dq.removeFirst() != dq.removeLast()) {
             return false;
         } else {
-            return isPalindrome(word.substring(1, word.length() - 1));
+            return getIsPalindrome(dq);
         }
-
     }
 
-    boolean isPalindrome(String word, CharacterComparator cc) {
-        if (word.length() == 0 || word.length() == 1) {
+
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+//        if (word.length() == 0 || word.length() == 1) {
+////            return true;
+////        } else if (!cc.equalChars(word.charAt(0), word.charAt(word.length() - 1))) {
+////            return false;
+////        } else {
+////            return isPalindrome(word.substring(1, word.length() - 1), cc);
+////        }
+        Deque dq = wordToDeque(word);
+        return getIsPalindromeCC(dq, cc);
+    }
+
+    private boolean getIsPalindromeCC(Deque dq, CharacterComparator cc) {
+        if (dq.size() == 0 || dq.size() == 1) {
             return true;
-        } else if (!cc.equalChars(word.charAt(0), word.charAt(word.length() - 1))) {
+        } else if (!cc.equalChars((char) dq.removeFirst(), (char) dq.removeLast())) {
             return false;
         } else {
-            return isPalindrome(word.substring(1, word.length() - 1), cc);
+            return getIsPalindromeCC(dq, cc);
         }
     }
 
-    boolean isPalindrome(String word, OffByN cc) {
-        if (word.length() == 0 || word.length() == 1) {
-            return true;
-        } else if (!cc.equalChars(word.charAt(0), word.charAt(word.length() - 1))) {
-            return false;
-        } else  {
-            return isPalindrome(word.substring(1, word.length() - 1), cc);
-        }
-    }
+//    public boolean isPalindrome(String word, OffByN cc) {
+//        if (word.length() == 0 || word.length() == 1) {
+//            return true;
+//        } else if (!cc.equalChars(word.charAt(0), word.charAt(word.length() - 1))) {
+//            return false;
+//        } else  {
+//            return isPalindrome(word.substring(1, word.length() - 1), cc);
+//        }
+//    }
 }
