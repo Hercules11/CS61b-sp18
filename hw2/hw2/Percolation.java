@@ -101,20 +101,20 @@ public class Percolation {
         return false;
     }             // does the system percolate?
 
-//    public static void main(String[] args) {
-//        Percolation perc = new Percolation(5);
-//        perc.open(0, 3);
-//        perc.open(1, 3);
-//        perc.open(2, 3);
-//        perc.open(3, 3);
-//        perc.open(4, 3);
-//        System.out.println("if the system percolate: " + perc.percolates());
-//        System.out.println("The number of open sites: " + perc.numberOfOpenSites());
-//        System.out.println("if (2, 3) is full: " + perc.isFull(2, 4));
-//        System.out.println("if (1, 3) is full: " + perc.isFull(1, 3));
-//        System.out.println("if (0, 3) is full: " + perc.isFull(0, 3));
-//        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
-//        perc.open(3, 4);
-//        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
-//    }  // use for unit testing (not required)
+    public static void main(String[] args) {
+        Percolation perc = new Percolation(5);
+        perc.open(0, 3);
+        perc.open(1, 3);
+        perc.open(2, 3);
+        perc.open(3, 3);
+        perc.open(4, 3);
+        System.out.println("if the system percolate: " + perc.percolates());
+        System.out.println("The number of open sites: " + perc.numberOfOpenSites());
+        System.out.println("if (2, 3) is full: " + perc.isFull(2, 4));
+        System.out.println("if (1, 3) is full: " + perc.isFull(1, 3));
+        System.out.println("if (0, 3) is full: " + perc.isFull(0, 3));
+        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
+        perc.open(3, 4);
+        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
+    }  // use for unit testing (not required)
 }
