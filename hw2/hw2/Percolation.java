@@ -3,10 +3,10 @@ package hw2;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    int[][] perc;
-    WeightedQuickUnionUF WQUDS;
-    int numberOpen = 0;
-    int size;
+    private int[][] perc;
+    private WeightedQuickUnionUF WQUDS;
+    private int numberOpen = 0;
+    private int size;
 
     public Percolation(int N) {
         if (N <= 0) {
@@ -79,7 +79,7 @@ public class Percolation {
             throw new java.lang.IndexOutOfBoundsException();
         }
         for (int i = 0; i < size; i++) {
-            if (WQUDS.connected(i, row * size + col)) {
+            if (WQUDS.connected(i, (row * size + col))) {
                 return true;
             }
         }
@@ -93,7 +93,7 @@ public class Percolation {
     public boolean percolates() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (WQUDS.connected(i, j + (size - 1) * size)) {
+                if (WQUDS.connected(i, (j + (size - 1) * size))) {
                     return true;
                 }
             }
@@ -101,20 +101,20 @@ public class Percolation {
         return false;
     }             // does the system percolate?
 
-    public static void main(String[] args) {
-        Percolation perc = new Percolation(5);
-        perc.open(0, 3);
-        perc.open(1, 3);
-        perc.open(2, 3);
-        perc.open(3, 3);
-        perc.open(4, 3);
-        System.out.println("if the system percolate: " + perc.percolates());
-        System.out.println("The number of open sites: " + perc.numberOfOpenSites());
-        System.out.println("if (2, 3) is full: " + perc.isFull(2, 3));
-        System.out.println("if (1, 3) is full: " + perc.isFull(1, 3));
-        System.out.println("if (0, 3) is full: " + perc.isFull(0, 3));
-        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
-        perc.open(3, 4);
-        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
-    }  // use for unit testing (not required)
+//    public static void main(String[] args) {
+//        Percolation perc = new Percolation(5);
+//        perc.open(0, 3);
+//        perc.open(1, 3);
+//        perc.open(2, 3);
+//        perc.open(3, 3);
+//        perc.open(4, 3);
+//        System.out.println("if the system percolate: " + perc.percolates());
+//        System.out.println("The number of open sites: " + perc.numberOfOpenSites());
+//        System.out.println("if (2, 3) is full: " + perc.isFull(2, 4));
+//        System.out.println("if (1, 3) is full: " + perc.isFull(1, 3));
+//        System.out.println("if (0, 3) is full: " + perc.isFull(0, 3));
+//        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
+//        perc.open(3, 4);
+//        System.out.println("if (3, 4) is open: " + perc.isOpen(3, 4));
+//    }  // use for unit testing (not required)
 }
