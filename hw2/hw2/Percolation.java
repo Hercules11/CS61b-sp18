@@ -79,7 +79,7 @@ public class Percolation {
             throw new java.lang.IndexOutOfBoundsException();
         }
         for (int i = 0; i < size; i++) {
-            if (WQUDS.connected(i, (row * size + col))) {
+            if (WQUDS.connected(i, (row * size + col)) && isOpen(0, i)) {
                 return true;
             }
         }
