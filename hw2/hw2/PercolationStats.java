@@ -45,18 +45,17 @@ public class PercolationStats {
         return mean() + 1.96 * stddev() / Math.sqrt(numberPerc.length);
     }   // high endpoint of 95% confidence interval
 
-    public static void main(String[] args) {
-        PercolationFactory pf = new PercolationFactory();
-        PercolationStats percolation = new PercolationStats(20, 10, pf);
-        System.out.println("THe stddev of system is: " + percolation.stddev());
-        System.out.println("THe high of system is: " + percolation.confidenceHigh());
-        System.out.println("THe high of system is: " + percolation.confidenceHigh());
-        System.out.println("THe stddev of system is: " + percolation.stddev());
-        System.out.println("THe low of system is: " + percolation.confidenceLow());
-        System.out.println("THe mean of system is: " + percolation.mean());
-        System.out.println("THe low of system is: " + percolation.confidenceLow());
-        System.out.println("THe high of system is: " + percolation.confidenceHigh());
-
-    }
+//    public static void main(String[] args) {
+//        PercolationFactory pf = new PercolationFactory();
+//        PercolationStats percolation = new PercolationStats(20, 10, pf);
+//        System.out.println("THe stddev of system is: " + percolation.stddev());
+//        System.out.println("THe high of system is: " + percolation.confidenceHigh());
+//        System.out.println("THe high of system is: " + percolation.confidenceHigh());
+//        System.out.println("THe stddev of system is: " + percolation.stddev());
+//        System.out.println("THe low of system is: " + percolation.confidenceLow());
+//        System.out.println("THe mean of system is: " + percolation.mean());
+//        System.out.println("THe low of system is: " + percolation.confidenceLow());
+//        System.out.println("THe high of system is: " + percolation.confidenceHigh());
+//    }
 
 }

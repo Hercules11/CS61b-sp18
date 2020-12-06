@@ -23,48 +23,51 @@ public class Percolation {
         }
         perc[row][col] = 1;
         numberOpen += 1;
-        if (row == 0) {
-            if (isOpen(1, col)) {
-                WQUDS.union(col, size + col);
-            }
-        } else if (row == size - 1) {
-            if (isOpen(size - 2, col)) {
-                WQUDS.union(size * row + col, size * row + col - size);
-            }
-        } else if (col == 0) {
-            if (isOpen(row - 1, 0)) {
-                WQUDS.union(row * size, size * (row - 1));
-            }
-            if (isOpen(row + 1, 0)) {
-                WQUDS.union(row * size, size * (row + 1));
-            }
-            if (isOpen(row, 1)) {
-                WQUDS.union(row * size, row * size + 1);
-            }
-        } else if (col == size - 1) {
-            if (isOpen(row - 1, size - 1)) {
-                WQUDS.union((row + 1) * size - 1, row * size - 1);
-            }
-            if (isOpen(row + 1, size - 1)) {
-                WQUDS.union((row + 1) * size - 1, (row + 2) * size - 1);
-            }
-            if (isOpen(row, size - 2)) {
-                WQUDS.union((row + 1) * size - 1, (row + 1) * size - 2);
-            }
-        } else {
-            if (isOpen(row - 1, col)) {
-                WQUDS.union(row * size + col, (row - 1) * size + col);
-            }
-            if (isOpen(row + 1, col)) {
-                WQUDS.union(row * size + col, (row + 1) * size + col);
-            }
-            if (isOpen(row, col - 1)) {
-                WQUDS.union(row * size + col, row * size + col - 1);
-            }
-            if (isOpen(row, col + 1)) {
-                WQUDS.union(row * size + col, row * size + col + 1);
+        if (size >= 2) {
+            if (row == 0) {
+                if (isOpen(1, col)) {
+                    WQUDS.union(col, size + col);
+                }
+            } else if (row == size - 1) {
+                if (isOpen(size - 2, col)) {
+                    WQUDS.union(size * row + col, size * row + col - size);
+                }
+            } else if (col == 0) {
+                if (isOpen(row - 1, 0)) {
+                    WQUDS.union(row * size, size * (row - 1));
+                }
+                if (isOpen(row + 1, 0)) {
+                    WQUDS.union(row * size, size * (row + 1));
+                }
+                if (isOpen(row, 1)) {
+                    WQUDS.union(row * size, row * size + 1);
+                }
+            } else if (col == size - 1) {
+                if (isOpen(row - 1, size - 1)) {
+                    WQUDS.union((row + 1) * size - 1, row * size - 1);
+                }
+                if (isOpen(row + 1, size - 1)) {
+                    WQUDS.union((row + 1) * size - 1, (row + 2) * size - 1);
+                }
+                if (isOpen(row, size - 2)) {
+                    WQUDS.union((row + 1) * size - 1, (row + 1) * size - 2);
+                }
+            } else {
+                if (isOpen(row - 1, col)) {
+                    WQUDS.union(row * size + col, (row - 1) * size + col);
+                }
+                if (isOpen(row + 1, col)) {
+                    WQUDS.union(row * size + col, (row + 1) * size + col);
+                }
+                if (isOpen(row, col - 1)) {
+                    WQUDS.union(row * size + col, row * size + col - 1);
+                }
+                if (isOpen(row, col + 1)) {
+                    WQUDS.union(row * size + col, row * size + col + 1);
+                }
             }
         }
+
     }      // open the site (row, col) if it is not open already
 
     public boolean isOpen(int row, int col) {
