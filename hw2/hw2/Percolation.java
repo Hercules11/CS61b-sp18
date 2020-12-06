@@ -43,9 +43,11 @@ public class Percolation {
         if (row < 0 || col < 0 || col >= size || row >= size) {
             throw new java.lang.IndexOutOfBoundsException();
         }
-        perc[row][col] = 1;
-        numberOpen += 1;
-        findOpen(row, col);
+        if (perc[row][col] != 1) {
+            perc[row][col] = 1;
+            numberOpen += 1;
+            findOpen(row, col);
+        }
     }
     // open the site (row, col) if it is not open already
 
