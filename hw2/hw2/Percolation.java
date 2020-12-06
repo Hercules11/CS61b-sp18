@@ -33,10 +33,10 @@ public class Percolation {
             }
         } else if (col == 0) {
             if (isOpen(row - 1, 0)) {
-                WQUDS.union(row * size, row * (size - 1));
+                WQUDS.union(row * size, size * (row - 1));
             }
             if (isOpen(row + 1, 0)) {
-                WQUDS.union(row * size, row * (size + 1));
+                WQUDS.union(row * size, size * (row + 1));
             }
             if (isOpen(row, 1)) {
                 WQUDS.union(row * size, row * size + 1);

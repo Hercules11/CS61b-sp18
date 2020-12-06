@@ -5,8 +5,8 @@ import edu.princeton.cs.introcs.StdStats;
 
 public class PercolationStats {
     private double[] numberPerc;
-    private double average;
-    private double stddiff;
+//    private double average;
+//    private double stddiff;
 
     public PercolationStats(int N, int T, PercolationFactory pf) {
         if (N <= 0 || T <= 0) {
@@ -30,31 +30,33 @@ public class PercolationStats {
     }   // perform T independent experiments on an N-by-N grid
 
     public double mean() {
-        average = StdStats.mean(numberPerc);
-        return average;
+        return StdStats.mean(numberPerc);
     }   // sample mean of percolation threshold
 
     public double stddev() {
-        stddiff = StdStats.stddev(numberPerc);
-        return stddiff;
+        return StdStats.stddev(numberPerc);
     }   // sample standard deviation of percolation threshold
 
     public double confidenceLow() {
-        return average - 1.96 * stddiff / Math.pow(numberPerc.length, 0.5);
+        return mean() - 1.96 * stddev() / Math.sqrt(numberPerc.length);
     }   // low endpoint of 95% confidence interval
 
     public double confidenceHigh() {
-        return average + 1.96 * stddiff / Math.pow(numberPerc.length, 0.5);
+        return mean() + 1.96 * stddev() / Math.sqrt(numberPerc.length);
     }   // high endpoint of 95% confidence interval
 
-//    public static void main(String[] args) {
-//        PercolationFactory pf = new PercolationFactory();
-//        PercolationStats percolation = new PercolationStats(10, 30, pf);
-//        System.out.println("The average number of test: " + percolation.mean());
-//        System.out.println("The stddiff number of test: " + percolation.stddev());
-//        System.out.println("The low number of test: " + percolation.confidenceLow());
-//        System.out.println("The high number of test: " + percolation.confidenceHigh());
-//
-//    }
+    public static void main(String[] args) {
+        PercolationFactory pf = new PercolationFactory();
+        PercolationStats percolation = new PercolationStats(20, 10, pf);
+        System.out.println("THe stddev of system is: " + percolation.stddev());
+        System.out.println("THe high of system is: " + percolation.confidenceHigh());
+        System.out.println("THe high of system is: " + percolation.confidenceHigh());
+        System.out.println("THe stddev of system is: " + percolation.stddev());
+        System.out.println("THe low of system is: " + percolation.confidenceLow());
+        System.out.println("THe mean of system is: " + percolation.mean());
+        System.out.println("THe low of system is: " + percolation.confidenceLow());
+        System.out.println("THe high of system is: " + percolation.confidenceHigh());
+
+    }
 
 }
