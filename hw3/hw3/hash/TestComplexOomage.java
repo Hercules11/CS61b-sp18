@@ -1,5 +1,6 @@
 package hw3.hash;
 
+import edu.princeton.cs.algs4.StdRandom;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -41,20 +42,18 @@ public class TestComplexOomage {
         List<Oomage> deadlyList = new ArrayList<>();
 
         // Your code here.
-        int N = 10000;
-
-        for (int i = 0; i < N; i += 1) {
-            deadlyList.add(ComplexOomage.randomComplexOomage());
-
-        }
+        int N = 1000;
         for (int i = 0; i < N; i++) {
-            for (int j = i + 1; j < N; j++) {
-                if (deadlyList.get(i) != deadlyList.get(j)) {
-                    assertNotEquals(deadlyList.get(i).hashCode(), deadlyList.get(j).hashCode());
-                }
+            List<Integer> params = new ArrayList<>();
+            for (int j = 0; j < 4; j++) {
+                params.add(StdRandom.uniform(256));
             }
+            for (int k = 0; k < 4; k++) {
+                params.add(k);
+            }
+            deadlyList.add(new ComplexOomage(params));
         }
-//        assertTrue(OomageTestUtility.haveNiceHashCodeSpread(deadlyList, 10));
+        assertTrue(OomageTestUtility.haveNiceHashCodeSpread(deadlyList, 10));
     }
 
     /** Calls tests for SimpleOomage. */
