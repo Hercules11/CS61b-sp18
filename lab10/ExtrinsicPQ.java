@@ -10,7 +10,8 @@ public interface ExtrinsicPQ<T> {
     public T peek();
     /* Removes and returns the minimum item. Also known as "dequeue". */
     public T removeMin();
-    /* Changes the priority of the given item. The behavior if the item doesn't exist is undefined. */
+    /* Changes the priority of the given item.
+    The behavior if the item doesn't exist is undefined. */
     public void changePriority(T item, double priority);
     /* Returns the number of items in the PQ. */
     public int size();
