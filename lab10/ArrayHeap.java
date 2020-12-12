@@ -44,10 +44,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      */
     private static int parentIndex(int i) {
         /* TODO : Your code here! */
-        if (i % 2 == 0) {
-            return i / 2;
-        }
-        return (i - 1) / 2;
+        return i / 2;
     }
 
     /**
@@ -161,8 +158,8 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
 
         /* TODO : Your code here! */
         Node newItem = new Node(item, priority);
-        contents[size + 1] = newItem;
         size += 1;
+        contents[size] = newItem;
         swim(size);
     }
 
@@ -191,8 +188,8 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         T result = contents[1].item();
         swap(1, size);
         contents[size] = null;
-        sink(1);
         size -= 1;
+        sink(1);
         return result;
     }
 
@@ -459,4 +456,21 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         }
     }
 
+    @Test
+    public void testChangePriority() {
+        ExtrinsicPQ<String> pq = new ArrayHeap<>();
+        pq.insert("c", 3);
+        pq.insert("i", 9);
+        pq.insert("g", 7);
+        pq.changePriority("g", 2);
+        pq.changePriority("i", 1);
+
+
+        int i = 0;
+        String[] expected = {"i", "g", "c"};
+        while (pq.size() > 1) {
+            assertEquals(expected[i], pq.removeMin());
+            i += 1;
+        }
+    }
 }
